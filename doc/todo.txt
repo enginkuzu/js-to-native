@@ -1,0 +1,31 @@
+
+- örnekler için sanitizer aktif edilsin (hataları düzeltilsin)
+
+Temel:
+- Assert entegrasyonu
+- Veri tiplerinin entegrasyonu
+- Veri tiplerine ait fn çağrılarının entegrasyonu
+- Akış kontrol entegrasyonu
+
+Opsiyonel:
+- Test suit entegrasyonu
+- Diğer alternatiflerin entegrasyonu
+- Performans testleri
+
+---
+
+= == => ===
++ ++ +=
+- -- -=
+* ** *= **=
+/ /=
+! != !==
+< <= << <<=
+> >= >> >>= >>> >>>=
+| |= || ||=
+% %=
+& && &= &&=
+^ ^=
+. ...
+? ?. ??
+yield*

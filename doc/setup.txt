@@ -1,0 +1,41 @@
+
+cd 4build
+
+wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+deb http://apt.llvm.org/bookworm/ llvm-toolchain-bookworm-17 main
+#deb-src http://apt.llvm.org/bookworm/ llvm-toolchain-bookworm-17 main
+apt update
+apt install clang-17 clang-format-17
+apt install libglib2.0-dev
+
+https://nodejs.org/en/download/   # LTS
+wget https://nodejs.org/dist/v20.11.0/node-v20.11.0-linux-x64.tar.xz
+tar xf node-v20.11.0-linux-x64.tar.xz && rm node-v20.11.0-linux-x64.tar.xz
+../4build/node-v20.11.0-linux-x64/bin/node test/test1.js
+
+curl -fsSL https://deno.land/install.sh | sh
+mkdir deno-1.39.4
+mv ~/.deno/bin/deno ./deno-1.39.4/
+rm -rf ~/.deno
+../4build/deno-1.39.4/deno run test/test1.js
+
+curl -fsSL https://bun.sh/install | bash
+mkdir bun-1.0.24
+mv ~/.bun/bin/bun ./bun-1.0.24/
+rm -rf ~/.bun
+../4build/bun-1.0.24/bun test/test1.js
+
+https://github.com/oracle/graaljs/releases
+wget https://github.com/oracle/graaljs/releases/download/graal-23.1.2/graaljs-23.1.2-linux-amd64.tar.gz
+tar xfz graaljs-23.1.2-linux-amd64.tar.gz && rm graaljs-23.1.2-linux-amd64.tar.gz
+sudo apt install openjdk-17-jdk
+../4build/graaljs-23.1.2-linux-amd64/bin/js test/test1.js
+
+git clone https://github.com/bellard/quickjs
+cd quickjs
+make
+../4build/quickjs/qjs test/test1.js
+../4build/quickjs/qjsc -o test-build/test1 test/test1.js
+
+
+
